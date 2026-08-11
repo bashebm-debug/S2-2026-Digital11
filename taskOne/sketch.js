@@ -56,10 +56,9 @@ function draw() {
   if (aquariumData) {
     // NOTE: Update these keys based on your actual Seneye JSON response structure!
     // Example fields commonly found in sensor data:
-    let temp = aquariumData.temperature || 24.5;
-    let ph = aquariumData.ph || 7.2;
-    let nh3 = aquariumData.nh3 || 0.01;
-
+  let temp = parseFloat(aquariumData[0].exps.temperature.curr);
+  let ph = parseFloat(aquariumData[0].exps.ph.curr);
+  let nh3 = parseFloat(aquariumData[0].exps.nh3.curr);
     // Call your custom graphic widgets
     drawTempWidget(50, 120, temp);
     drawGaugeWidget(300, 120, "pH Level", ph, 6.0, 8.5);
@@ -107,3 +106,4 @@ function drawGaugeWidget(x, y, label, val, minVal, maxVal) {
   textSize(28);
   text(val, x + 15, y + 50);
 }
+
