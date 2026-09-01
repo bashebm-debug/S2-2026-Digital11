@@ -14,7 +14,7 @@ const PROXY_URL =
 
 const USE_OFFLINE_MOCK = false;
 
-// Refresh live data every 30 seconds
+// Refresh live data every 30000ms (300) seconds
 const REFRESH_MS = 30000;
 
 // Maximum points shown on trend graphs
