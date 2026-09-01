@@ -1468,6 +1468,33 @@ function drawMetricCard(
 
   textStyle(BOLD);
 
+fill(
+  110,
+  160,
+  180
+);
+
+textSize(9);
+
+let targetText = "";
+
+if (label === "WATER TEMP") {
+  targetText = "Target: 22–26°C";
+}
+
+else if (label === "pH") {
+  targetText = "Target: 6.8–7.8";
+}
+
+else if (label === "NH₃") {
+  targetText = "Target: 0.00–0.02";
+}
+
+text(
+  targetText,
+  x + 18,
+  y + 140
+);
 
   text(
     getStatusText(
