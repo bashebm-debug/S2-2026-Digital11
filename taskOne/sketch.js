@@ -181,7 +181,7 @@ function onDataLoaded(data) {
 
 
   // -----------------------------------------------
-  // Add readings to trend history
+  // Add readings to trend history 
   // -----------------------------------------------
 
   try {
