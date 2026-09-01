@@ -14,7 +14,7 @@ const PROXY_URL =
 
 const USE_OFFLINE_MOCK = false;
 
-// Refresh live data every 30000ms (30) seconds
+// Refresh live data every 30000ms (30 seconds)
 const REFRESH_MS = 30000;
 
 // Maximum points shown on trend graphs
@@ -247,6 +247,14 @@ function onDataLoaded(data) {
 // ERROR HANDLING
 // ===================================================
 
+// ===================================================
+// SENSOR DATA VALIDATION
+// ===================================================
+
+function isValidReading(value) {
+  return Number.isFinite(value);
+}
+
 function onError(error) {
 
   console.error(
@@ -334,7 +342,20 @@ function draw() {
         parseFloat(
           exps.lux.curr
         );
+// -------------------------------------------
+// Validate sensor readings
+// -------------------------------------------
 
+if (
+  !isValidReading(temp) ||
+  !isValidReading(ph) ||
+  !isValidReading(nh3)
+) {
+
+  throw new Error(
+    "Invalid core sensor reading"
+  );
+}
 
       // -------------------------------------------
       // Calculate statuses
