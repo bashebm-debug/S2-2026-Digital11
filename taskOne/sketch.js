@@ -14,7 +14,7 @@ const PROXY_URL =
 
 const USE_OFFLINE_MOCK = false;
 
-// Refresh live data every 30000ms (300) seconds
+// Refresh live data every 30000ms (30) seconds
 const REFRESH_MS = 30000;
 
 // Maximum points shown on trend graphs
@@ -1338,7 +1338,7 @@ function drawMetricCard(
     x,
     y,
     190,
-    170
+    180
   );
 
 
@@ -1455,18 +1455,9 @@ function drawMetricCard(
   );
 
 
-  // -----------------------------------------------
-  // Status txt
-  // -----------------------------------------------
-
-  fill(
-    statusColour
-  );
-
-
-  textSize(10);
-
-  textStyle(BOLD);
+ // -----------------------------------------------
+// Target range
+// -----------------------------------------------
 
 fill(
   110,
@@ -1475,6 +1466,7 @@ fill(
 );
 
 textSize(9);
+textStyle(NORMAL);
 
 let targetText = "";
 
@@ -1496,15 +1488,27 @@ text(
   y + 140
 );
 
-  text(
-    getStatusText(
-      status
-    ),
-    x + 18,
-    y + 158
-  );
 
+// -----------------------------------------------
+// Status text
+// -----------------------------------------------
 
+fill(
+  statusColour
+);
+
+textSize(10);
+textStyle(BOLD);
+
+text(
+  getStatusText(
+    status
+  ),
+  x + 18,
+  y + 158
+);
+
+textStyle(NORMAL);
   textStyle(NORMAL);
 }
 
