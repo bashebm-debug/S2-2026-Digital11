@@ -2303,6 +2303,49 @@ function drawTrendGraph(
     );
   }
 
+    // -----------------------------------------------
+  // Y-axis scale labels
+  // -----------------------------------------------
+
+  noStroke();
+
+  fill(
+    100,
+    150,
+    170
+  );
+
+  textSize(8);
+  textStyle(NORMAL);
+
+
+  // Maximum value
+  let maxLabel =
+    label === "NH₃ TREND"
+      ? maxValue.toFixed(2)
+      : maxValue;
+
+
+  // Minimum value
+  let minLabel =
+    label === "NH₃ TREND"
+      ? minValue.toFixed(2)
+      : minValue;
+
+
+  text(
+    maxLabel + unit,
+    x + 18,
+    y + 38
+  );
+
+
+  text(
+    minLabel + unit,
+    x + 18,
+    y + h - 31
+  );
+
 
   // -----------------------------------------------
   // Trend line
